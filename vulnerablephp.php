@@ -11,6 +11,8 @@
 		$name = "<?php echo 1+1; ?>"; // some value you can control from the database
 		if (!empty($name)) {
 			echo "Welcome, $name";
+		} else {
+			echo "Welcome, Ian!"
 		}
     ?>
 </div>
