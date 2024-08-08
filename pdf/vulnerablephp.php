@@ -9,8 +9,7 @@
 <div>
 <noscript>
 <?php
-	$fullName = "echo 1+1;"; // This would come from your database
-	$name = eval("return " . $fullName);
+	$name = "User!"
 	if (!empty($name)) {
 		echo "Welcome, $name";
 	}

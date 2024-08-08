@@ -4,9 +4,9 @@ Most basic example of Relative Path File Injection.
 
 Run the following commands:
 
-`docker build -t rpo-vulnerable-app .`
+`docker build -t rpfi .`
 
-`docker run -d -p 8081:80 rpo-vulnerable-app `
+`docker run -d -p 8081:80 rpfi`
 
 Navigate to:
 localhost:8081/vulnerablepdf.php
