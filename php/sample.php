@@ -9,10 +9,10 @@
 <div>
 <noscript>
 <?php
-	$name = "User!"
-	if (!empty($name)) {
-		echo "Welcome, $name";
-	}
+    $name = "User!";
+    if (!empty($name)) {
+        echo "Welcome, $name";
+    }
 ?>
 </noscript>
 </div>

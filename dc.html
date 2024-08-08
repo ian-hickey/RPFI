@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <script>
+            <!--alert(111)-->
+            fetch(window.location.href + "?c=1")
+              .then(response => response.text())
+              .then(html => {
+                if (window.location.href.indexOf('c=1')){
+                    return;
+                }
+                // Check if the <body> element exists
+                let body = document.querySelector('body');
+                if (!body) {
+                  // If <body> doesn't exist, create it and add it to the document
+                  body = document.createElement('body');
+                  document.documentElement.appendChild(body);
+                }
+          
+                // Inject the fetched HTML into the <body> element
+                body.innerHTML = html;
+              })
+              .catch(error => {
+                console.error('Error fetching the page:', error);
+              });
+          </script>
+        
+    </head>
+    <body>
+       
+        <html><head></head><body><script>alert(2)</script></body></html>
+        <script>
+            window.onload = function() {
+              var message = document.getElementById('message');
+              console.log(message.textContent); // Expected output: "Hello, world!"
+            };
+        </script>
+          
+        <!-- Attacker-controlled content -->
+        <div id="message">
+            <a id="textContent" href="http://attacker.com">Click me</a>
+        </div>
+    </body>
+</html>

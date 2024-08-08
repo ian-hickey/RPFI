@@ -4,17 +4,16 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<a href="pdf/sample.php" download>Safe PHP Download</a>
+<a href="php/sample.php" download="sample.php">Safe PHP Download</a>
 
 <div>
 	<!-- If you can inject content into this page, you can change this HTML page into a PHP page on download. -->
 <noscript>
 <?php
-	$fullName = "echo 1+1;"; // If they run this PHP file, they run the risk of us stealing info from their system. 
-	$name = eval("return " . $fullName);
-	if (!empty($name)) {
-		echo "Welcome, $name";
-	}
+    $name = "Badguy!";
+    if (!empty($name)) {
+        echo "Welcome, $name";
+    }
 ?>
 </noscript>
 </div>
