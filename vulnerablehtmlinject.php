@@ -1,12 +1,14 @@
 <html>
     <head>
         <script>
-            <!--alert(111)-->
-            fetch(window.location.href + "?c=1")
+            fetch("html/sample.php?d=1")
               .then(response => response.text())
               .then(html => {
-                if (window.location.href.indexOf('c=1')){
-                    return;
+                const url = new URL(window.location.href);
+                // only run logic once.
+                const params = new URLSearchParams(url.search);
+                if (params.get('d') === '1') {
+                  return true;
                 }
                 // Check if the <body> element exists
                 let body = document.querySelector('body');
@@ -23,21 +25,16 @@
                 console.error('Error fetching the page:', error);
               });
           </script>
-        
+          <!-- Attacker-controlled content -->
+          <frameset id="message"><script>alert('RPFI')</script></frameset>
     </head>
     <body>
-       
-        <html><head></head><body><script>alert(2)</script></body></html>
+       <!-- Script gets injected into body and HTML tag removed. -->
         <script>
             window.onload = function() {
               var message = document.getElementById('message');
               console.log(message.textContent); // Expected output: "Hello, world!"
             };
         </script>
-          
-        <!-- Attacker-controlled content -->
-        <div id="message">
-            <a id="textContent" href="http://attacker.com">Click me</a>
-        </div>
     </body>
 </html>
